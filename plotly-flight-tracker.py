@@ -49,8 +49,8 @@ def distance_between_two_latlon(lat1, lon1, lat2, lon2):
 with open('flight_data.csv', 'w') as f:
     #loops through the data in the data dictionary
     for data in response_dict:
-        #check if the airplane is in the air. If so, check if the distance is between the plane and you is close enough
-        if 'status' in data.keys() and data['status'] == 'en-route' and distance_between_two_latlon(center_lat, center_lon, data['lat'], data['lng']) < distance_from_home:
+        #Checks if the distance is between the plane and you is close enough
+        if distance_between_two_latlon(center_lat, center_lon, data['lat'], data['lng']) < distance_from_home:
             #checks if the amount of flights you inputed is less than the flights looped
             if flights <= num_of_flights:
                 #initiate the csv writer
